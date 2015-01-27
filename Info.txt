@@ -1,0 +1,5 @@
+The version of python used was 3.4.2.
+
+An external library, Pillow 2.6.0, was also used.
+
+As for the script, the structure used to store explored state information was a hash table, which the Py docs call also call a Dictionary, which seemed like a good type to use because of unique 2D coordinate values and retrieval speed. A heap was used to store the "frontier" states. For both cases, the MyState class had to be hashable, which meant adding two operator methods which might seem confusingly incomplete; __eq__ only checks for coordinate equality for the Dictionary and __lt__ only does a less than comparison between another MyState object. The reason for this is because heapq sorting only looks for __lt__ to determine if a class's objects can be sorted, the same applies for hashing and  __eq__.
